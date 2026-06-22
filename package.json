@@ -1,0 +1,40 @@
+{
+  "name": "csv-pro-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Ngô Quang Thảo",
+  "scripts": {
+    "dev": "rm -rf .next && next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "tauri": "tauri",
+    "clean": "rm -rf .next out",
+    "clean:rust": "cargo clean --manifest-path src-tauri/Cargo.toml",
+    "build:installer": "npm run clean && tauri build",
+    "build:mac-arm": "npm run clean && tauri build --target aarch64-apple-darwin -b app && ditto -c -k --sequesterRsrc --keepParent 'src-tauri/target/aarch64-apple-darwin/release/bundle/macos/CSV Pro.app' 'src-tauri/target/aarch64-apple-darwin/release/bundle/macos/CSV_Pro_mac_arm64.zip'",
+    "build:mac-intel": "npm run clean && tauri build --target x86_64-apple-darwin -b app && ditto -c -k --sequesterRsrc --keepParent 'src-tauri/target/x86_64-apple-darwin/release/bundle/macos/CSV Pro.app' 'src-tauri/target/x86_64-apple-darwin/release/bundle/macos/CSV_Pro_mac_intel.zip'",
+    "build:win": "npm run clean && tauri build --target x86_64-pc-windows-msvc -b msi",
+    "build:win-arm": "npm run clean && tauri build --target aarch64-pc-windows-msvc -b msi"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.5.0",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.294.0",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.0.0",
+    "tailwind-scrollbar": "^3.0.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.5.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.2.0"
+  }
+}
