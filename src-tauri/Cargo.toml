@@ -1,6 +1,6 @@
 [package]
 name = "csv-pro"
-version = "0.1.0"
+version = "0.1.3"
 description = "High-Performance Desktop CSV Editor & Analytics"
 authors = ["Antigravity", "Ngô Quang Thảo"]
 edition = "2021"
